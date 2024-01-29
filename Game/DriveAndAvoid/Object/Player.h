@@ -1,4 +1,8 @@
 #pragma once
+
+#include "../Utility/Vector2D.h"
+#include "Barrier.h"
+
 class Player
 {
 private:
@@ -30,7 +34,7 @@ public:
 	float GetSpeed() const;	//速さ取得処理
 	float GetFuel() const;	//燃料取得
 	float GetHp() const;	//体力取得
-	int GetBarriarCount() const;	//バリアの枚数取得
+	int GetBarrierCount() const;	//バリアの枚数取得
 	bool IsBarrier() const;	//バリア有効か？を取得
 
 private:

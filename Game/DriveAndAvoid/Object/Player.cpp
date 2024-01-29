@@ -154,3 +154,58 @@ float Player::GetHp() const
 	return this->hp;
 }
 
+//バリア枚数取得処理
+int Player::GetBarrierCount() const
+{
+	return this->barrier_count;
+}
+//バリア取得か？を取得
+bool Player::IsBarrier() const
+{
+	return (barrier != nullptr);
+}
+
+//移動処理
+void Player::Movement()
+{
+	Vector2D move = Vector2D(0.0f);
+	angle = 0.0f;
+
+	//十字移動処理
+	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_LEFT))
+	{
+		move += Vector2D(-1.0f, 0.0f);
+		angle = -DX_PI_F / 18;
+	}
+	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_RIGHT))
+	{
+		move += Vector2D(0.0f, -1.0f);
+		angle = DX_PI_F / 18;
+	}
+	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_UP))
+	{
+		move += Vector2D(0.0f, -1.0f);
+	}
+	if (InputControl::GetButton(XINPUT_BUTTON_DPAD_UP))
+	{
+		move += Vector2D(0.0f, 1.0f);
+	}
+	location += move;
+
+	//画面買いに行かないように制限する
+	if ((location.x < ) || (location.x >= 640.0f - 180.0f) || (location.y < box_size.y) || (location.y >= 480.0f - box_size.y))
+	{
+		location -= move;
+	}
+}
+
+//加減速処理
+void Player::Acceleration()
+{
+	//LBボタンが押されたら、加速する
+	if (InputControl::GetButton(XINPUT_BUTTON_RIGHT_SHOULDER) && speed < 10.0f)
+	{
+		speed += 1.0f;
+	}
+}
+
