@@ -1,11 +1,13 @@
 #pragma once
+
+#include "Vector2D.h"
 class InputControl
 {
 private:
 	static bool now_button[16];
 	static bool old_button[16];
 	static float trigger[2];
-	static Vector2D stick[16];
+	static Vector2D stick[2];
 
 public:
 	static void Update();
@@ -15,7 +17,12 @@ public:
 	static bool GetButtonDown(int button);
 	static bool GetButtonUp(int button);
 
+
 	//トリガー入力取得処理
+	static float GetLeftTrigger();
+	static float GetRightTrigger();
+
+	//スティック入力取得処理
 	static Vector2D GetLeftStick();
 	static Vector2D GetRightStick();
 
