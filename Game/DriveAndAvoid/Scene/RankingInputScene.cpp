@@ -102,6 +102,10 @@ void RankingInputScene::Draw() const
 		{
 			DrawBox(35, 400, 35 + font_size * 2, 400 + font_size, GetColor(255, 255, 255), FALSE);
 		}
+		else
+		{
+			DrawBox(125, 400, 35 + font_size * 2, 400 + font_size, GetColor(255, 255, 255), FALSE);
+		}
 	}
 }
 
@@ -199,7 +203,7 @@ bool RankingInputScene::InputName()
 			}
 			else
 			{
-				name[name_num--] = NULL;
+				name[--name_num] = NULL;
 			}
 		}
 	}

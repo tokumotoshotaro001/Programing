@@ -71,7 +71,7 @@ void ResultScene::Draw() const
 		DrawFormatString(260, 222 + (i * 21), GetColor(255, 255, 255), "%6d x %4d=%6d", enemy_count[i], (i + 1) * 50, (i + 1) * 50 * enemy_count[i]);
 	}
 	DrawString(180, 290, "スコア", GetColor(0, 0, 0));
-	DrawFormatString(180, 290, 0xFFFFFF, "=%6d", score);
+	DrawFormatString(180, 290, 0xFFFFFF, "        =%6d", score);
 }
 
 //終了処理
@@ -110,7 +110,7 @@ void ResultScene::ReadResultData()
 	//避けた数と得点を取得
 	for (int i = 0; i < 3; i++)
 	{
-		fscanf_s(fp, "%6d\n", &enemy_count[i]);
+		fscanf_s(fp, "%6d,\n", &enemy_count[i]);
 	}
 
 	//ファイルクローズ

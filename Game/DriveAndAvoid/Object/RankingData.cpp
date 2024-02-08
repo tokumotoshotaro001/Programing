@@ -112,7 +112,7 @@ void RankingData::SortData()
 	}
 	for (int i = 0; i < 5; i++)
 	{
-		for (int j = i+1; j < 5; j++)
+		for (int j = i+1; j < 6; j++)
 		{
 			if (score[i] > score[j])
 			{
@@ -136,7 +136,7 @@ void RankingData::SortData()
 	//対象ファイルに書き込む
 	for (int i = 0; i < 5; i++)
 	{
-		fprintf(fp, "%d,%d,%s\n", score[i], rank[i], name[i]);
+		fprintf(fp, "%d,%d,%s,\n", score[i], rank[i], name[i]);
 	}
 
 	//ファイルクローズ
